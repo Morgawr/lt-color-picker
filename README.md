@@ -3,7 +3,7 @@ Color Picker
 
 Color picker plugin for LightTable.
 
-Current version: 0.0.4
+Current version: 0.0.5
 
 ##What is this?
 

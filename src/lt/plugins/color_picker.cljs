@@ -16,16 +16,17 @@
 (defn x-offset [cursor]
   ((js->clj cursor) "left"))
 
-(defui color-wheel [this line cursor]
-  [:div {:style (str "width: 200px; margin-left: " (x-offset cursor)) }
+;; TODO - figure out how to get absolute position for cursor so we can render
+;; the color picker in the right way
+(defui color-wheel [this line]; cursor]
+  [:div {:style (str "width: 90%; margin-left: auto; margin-right: auto;")}
    [:input {:type "color"
-            :style "width: 100%; height: 50px"}]]
+            :style "width: 100%; height: 45px"}]]
   :change (fn [event]
             (let [color (.-value (.-target event))]
               (object/raise this :close-picker)
               (add-color-to-line this color)
               (object/raise this :focus!))))
-
 
 (object/behavior* ::color-picker-open
                   :type :user
@@ -35,14 +36,14 @@
                               (editor/operation (editor/->cm-ed this)
                                                 (fn []
                                                   (let [prev (.getScrollInfo (editor/->cm-ed this))
-                                                        {:keys [line]} (editor/->cursor this)
-                                                        coords (.cursorCoords (editor/->cm-ed this))]
+                                                        {:keys [line]} (editor/->cursor this)]
+                                                        ;coords (.cursorCoords (editor/->cm-ed this))]
                                                     (when-let [picker (:color-picker @this)]
                                                       (editor/remove-line-widget this picker))
                                                     (object/merge! this
                                                                    {:color-picker (editor/line-widget this
                                                                                                       line
-                                                                                                      (color-wheel this line coords))}))))))
+                                                                                                      (color-wheel this line))}))))))
 
 (object/behavior* ::color-picker-close
                   :type :user

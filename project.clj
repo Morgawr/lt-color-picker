@@ -1,2 +1,2 @@
-(defproject color-picker "0.0.5"
+(defproject color-picker "0.0.6"
   :dependencies [[org.clojure/clojure "1.5.1"]])

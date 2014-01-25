@@ -1,2 +1,5 @@
 {:+ {:app [(:lt.objs.plugins/load-js "color_picker_compiled.js" true)]
-     :color-picker.hello [:lt.plugins.color-picker/on-close-destroy]}}
+     :color-picker.hello [:lt.plugins.color-picker/on-close-destroy]
+     :editor [:lt.plugins.color-picker/color-picker-open
+              :lt.plugins.color-picker/color-picker-close]}
+ }

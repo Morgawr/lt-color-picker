@@ -1,0 +1,6 @@
+{:name "color_picker"
+ :version "0.0.1"
+ :author ""
+ :source ""
+ :desc ""
+ :behaviors "color_picker.behaviors"}

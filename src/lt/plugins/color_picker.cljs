@@ -23,7 +23,8 @@
   :change (fn [event]
             (let [color (.-value (.-target event))]
               (object/raise this :close-picker)
-              (add-color-to-line this color))))
+              (add-color-to-line this color)
+              (object/raise this :focus!))))
 
 
 (object/behavior* ::color-picker-open

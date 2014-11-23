@@ -5,8 +5,8 @@
             [lt.objs.notifos :as notifos]
             [lt.objs.editor :as editor]
             [lt.objs.editor.pool :as pool]
-            [lt.util.js :as util])
-  (:use [lt.util.cljs :only [js->clj]])
+            [lt.util.js :as util]
+            [lt.util.cljs :as cljs])
   (:require-macros [lt.macros :refer [defui behavior]]))
 
 
@@ -14,7 +14,7 @@
   (editor/insert-at-cursor this color))
 
 (defn x-offset [cursor]
-  ((js->clj cursor) "left"))
+  ((cljs/js->clj cursor) "left"))
 
 ;; TODO - figure out how to get absolute position for cursor so we can render
 ;; the color picker in the right way
@@ -61,6 +61,9 @@
                       (when-let [ed (pool/last-active)]
                         (object/raise ed :open-picker)))})
 
+
 (cmd/command {:command ::color-picker-close
               :desc "Close the currently open color picker"
-              :exec (partial close-picker) })
+              :exec (fn []
+                      (when-let [ed (pool/last-active)]
+                        (object/raise ed :close-picker)))})

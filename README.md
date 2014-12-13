@@ -3,7 +3,7 @@ Color Picker
 
 Color picker plugin for LightTable.
 
-Current version: 0.0.6
+Current version: 0.0.7
 
 ##What is this?
 
@@ -11,7 +11,7 @@ It's a plugin for LightTable that lets you open a small color picker tool so you
 
 ##How do I use it?
 
-Add it to your plugin list (soon on the plugin manager, else clone this repo in your LightTable plugin directory) and then hit ctrl+space (or command for you mac users) and type "open color picker".
+Add it to your plugin list from the plugin repository and then hit ctrl+space (or command for you mac users) and type "open color picker".
 
 After you have selected your choice of color, it will close and insert the color on your cursor.
 
